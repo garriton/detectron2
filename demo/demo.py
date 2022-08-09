@@ -26,6 +26,14 @@ def setup_cfg(args):
     # To use demo for Panoptic-DeepLab, please uncomment the following two lines.
     # from detectron2.projects.panoptic_deeplab import add_panoptic_deeplab_config  # noqa
     # add_panoptic_deeplab_config(cfg)
+    ###########################
+
+    # To use demo for Panoptic-FCN, please uncomment the following 4 lines.
+    import sys
+    sys.path.append("..")
+    from projects.PanopticFCN.panopticfcn import add_panopticfcn_config  # noqa
+    add_panopticfcn_config(cfg)
+    ############################
     cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)
     # Set score_threshold for builtin models
